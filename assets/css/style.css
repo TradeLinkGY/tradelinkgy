@@ -372,6 +372,10 @@ input[id=user_telephone], input[id=user_mobile] { width: 85px; }
 .area-form-input { margin: 1em 0; }
 .area-form-field { margin-left: 160px; vertical-align: middle; }
 
+fieldset {
+    margin-bottom: 15px;
+}
+
 legend {
     color: #9c3;
     display: block;
