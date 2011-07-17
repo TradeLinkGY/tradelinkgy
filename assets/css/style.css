@@ -179,7 +179,7 @@ h4,h5,h6 {
 	background: #9c3;
 	color: #fff;
 	line-height: 44px;
-	padding: 0 auto;
+	padding: 0;
 	width: 100%;
 }
 
@@ -338,15 +338,33 @@ a.button:active {
 }
 
 /* FORMS */
-input, textarea { margin: 0 0 0.5em; }
-input, select, textarea { padding: 2px; }
-input[type=text], input[type=password], textarea { width: 320px; }
-select { width: 324px }
-textarea { height: 140px; }
-
-input[type=submit], input[type=reset] {
-    width: 120px;
+form.form-content {
+    padding-top: 20px;
 }
+
+input {
+    margin: 0 0 0.5em;
+    padding: 2px;
+}
+
+select {
+    padding: 2px;
+    width: 324px;
+}
+
+textarea {
+    height: 140px;
+    margin: 0 0 0.5em;
+    padding: 2px;
+}
+
+input[type=checkbox] {
+    margin-right: 4px;
+    padding: 0;
+}
+
+input[type=text], input[type=password], textarea { width: 320px; }
+input[type=submit], input[type=reset] { width: 120px; }
 
 input[id=user_country_code], input[id=user_area_code], input[id=user_mobile_country_code], input[id=user_mobile_area_code] { width: 35px; }
 input[id=user_telephone], input[id=user_mobile] { width: 85px; }
@@ -372,11 +390,13 @@ label {
 p.error, label.error {
 	color: #F00;
 }
-label.radio-label {
-        display: inline;
+label.inline-label {
+        display: inline-block;
 	float: none;
         font-weight: normal;
+        margin: -1px 0 0;
         text-align: left;
+        width: auto;
 }
 
 #area-search label {
