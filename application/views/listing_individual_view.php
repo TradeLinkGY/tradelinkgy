@@ -2,6 +2,7 @@
     <div class="area-type noborder clearfix">
         <h2><?= $listing->listing_name; ?></h2>
         <p>Listed in: <?php echo(anchor($links['link_category'], $listing->name_category)); ?> <span>&raquo;</span> sub-category.</p>
+        <!-- TEST Line -->
         
         <?php
         isset($listing->name_image) ? $image = $listing->name_image : $image = 'tlgy_noitem.jpg';
