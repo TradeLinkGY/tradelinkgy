@@ -50,11 +50,7 @@
 		<div class="area-form-field">
 			<p><?= form_input(array('id' => 'user_address_street', 'name' => 'user_address_street'), $user->user_address_street); ?></p>
                         <?= form_error('user_address_street','<p class="error">', '</p>'); ?>
-<<<<<<< HEAD
-                        <p><?= form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary'/*, CHANGE TO $user->address_secondary */)); ?></p>
-=======
                         <p><?= form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary'), $user->user_address_secondary); ?></p>
->>>>>>> 5bd9ac96abca3c3324b16bd0cccfb8f28d3bcaa5
                         <?= form_error('user_address_secondary','<p class="error">', '</p>'); ?>
 		</div>
     </div>
