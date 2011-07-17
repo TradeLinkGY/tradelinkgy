@@ -28,9 +28,9 @@
     <div class="area-form-input">
         <?= form_label('Telephone:','user_country_code') ?>
         <div class="area-form-field">
-                <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3')/*, CHANGE TO $user->country_code */); ?>
-                <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3')/*, CHANGE TO $user->area_code */); ?>
-                <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7')/*, CHANGE TO $user->telephone */); ?>
+                <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3')/*, $user->user_country_code*/); ?>
+                <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3')/*, $user->user_area_code*/); ?>
+                <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7'), $user->user_phone ); ?>
                 <?= form_error('user_telephone','<p class="error">', '</p>'); ?>
         </div>
     </div>
@@ -38,9 +38,9 @@
     <div class="area-form-input">
         <?= form_label('Mobile:','user_mobile_country_code') ?>
         <div class="area-form-field">
-                <?= form_input(array('id' => 'user_mobile_country_code', 'maxlength' => '3')/*, CHANGE TO $user->mobile_country_code */); ?>
-		<?= form_input(array('id' => 'user_mobile_area_code', 'maxlength' => '3'/*, CHANGE TO $user->mobile_area_code */)); ?>
-		<?= form_input(array('id' => 'user_mobile', 'maxlength' => '7'/*, CHANGE TO $user->mobile */)); ?>
+                <?= form_input(array('id' => 'user_mobile_country_code', 'maxlength' => '3')/*, $user->user_mobile_country_code*/); ?>
+		<?= form_input(array('id' => 'user_mobile_area_code', 'maxlength' => '3'/*, $user->user_mobile_area_code*/)); ?>
+		<?= form_input(array('id' => 'user_mobile', 'maxlength' => '7'), $user->user_mobile); ?>
                 <?= form_error('user_mobile','<p class="error">', '</p>'); ?>
         </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="area-form-input">
         <?= form_label('Street Address:','user_address_street') ?>
 		<div class="area-form-field">
-			<p><?= form_input(array('id' => 'user_address_street', 'name' => 'user_address_street'/*, CHANGE TO $user->address_street */)); ?></p>
+			<p><?= form_input(array('id' => 'user_address_street', 'name' => 'user_address_street'), $user->user_address_street); ?></p>
                         <?= form_error('user_address_street','<p class="error">', '</p>'); ?>
                         <p><?= form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary'/*, CHANGE TO $user->address_secondary */)); ?></p>
                         <?= form_error('user_address_secondary','<p class="error">', '</p>'); ?>
