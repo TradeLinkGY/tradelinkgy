@@ -1,0 +1,464 @@
+/*
+Theme Name: ver1
+Theme URI: http://www.tradelinkgy.com
+Description: Layout for TradeLinkGY.com
+Version: 1.0
+Author: Jason Plummer
+Author URI: http://jasonplummerdesign.com
+Tags: grid, clean
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, pre, a, 
+em, font, img, small, strike, strong,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus { outline: 0; }
+
+/* Global reset-RESET */
+strong { font-weight:bold }
+em { font-style:italic }
+a img { border:none }
+blockquote { 
+	color: #999;
+	display: block;
+	margin: 1em 2em 1em 1em;
+	padding-left: 35px;
+}
+
+html { height: 100%; }
+body {
+	background: #fff;
+	color: #999;
+	font: 13px/20px Arial, Helvetica, san-serif;
+}
+
+/*
+	TYPOGRAPHY
+*/
+
+p {
+	margin-bottom: 5px;
+}
+.help {cursor: help;}
+.area-start p {
+	font-size: 12px;
+	line-height: 18px;
+}
+.area-listing p {
+	margin: 0;
+}
+.listing-info span {
+	font-weight: bold;
+	
+}
+.listing-info p {
+	margin: 5px 0 1em;
+}
+.listing-info .listing-label {
+	margin: 5px 0;
+}
+
+#description {
+	margin: 20px 0 5px;
+}
+
+#secondary p {
+	font-size: 12px;
+	line-height: 18px;
+}
+#secondary span {
+	font-weight: bold;
+}
+.listing-active-link {
+	font-weight: bold;
+	margin: 0;
+}
+
+a { color: #39c; text-decoration: none; }
+a:visited { color: #297aa3; }
+a:hover { text-decoration: underline; }
+a:focus{ outline:#333 dotted 1px; }
+a:active{ position: relative; top: 1px }
+
+.area-listing>a { display: block; margin-bottom: 5px; }
+.area-listing-search>a { display: block; float: left; margin: 5px 0; }
+
+h1 {
+	
+}
+h2 {
+	color: #9c3;
+	font: 18px/30px Georgia, "Times New Roman", Times, serif;
+	margin: 0 0 15px;
+}
+h2>span {
+	color: #ccc;
+	font-weight: bold;
+}
+h3 {
+	color: #39c;
+	font: bold 16px/24px Arial, Helvetica, san-serif;
+	margin: 0 0 5px;
+}
+h4,h5,h6 {
+	color: #9c3;
+	font: bold 13px/20px Arial, Helvetica, san-serif;
+}
+#secondary h4 {
+	margin: 0 0 5px;
+}
+
+#related-listings h2 {
+	margin: 0 0 10px;
+}
+#related-listings p {
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+}
+#related-listings span {
+	font-weight: bold;
+}
+.related-listings-price {
+	color: #9c3;
+	font-weight: bold;
+}
+
+#footer span {
+	font-size: 11px;
+}
+#footer p {
+	margin: 0;
+}
+
+/*
+	LAYOUT
+*/
+
+#wrapper {
+	margin: 0 auto;
+	width: 950px;
+}
+
+#header {
+	margin: 0;
+	padding: 5px 0 0 0;
+	position: relative;
+}
+#logo {
+	display: block;
+	height: 70px;
+	margin: 0 0 20px;
+	width: 310px;
+}
+#text-account {
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+#area-tabs {
+	height: 30px;
+	position: absolute;
+	right: 0;
+	top: 65px;
+}
+#area-search {
+	background: #9c3;
+	color: #fff;
+	line-height: 44px;
+	padding: 0 auto;
+	width: 100%;
+}
+
+#area-content {
+    clear: both;
+    margin: 0;
+    width: 950px;
+}
+#content {
+    float: left;
+    padding-top: 20px;
+    width: 710px;
+}
+.area-type {
+	border-bottom: 1px #ccc solid;
+	margin: 0 0 10px;
+	position: relative;
+}
+.pagination-link {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.area-listing-holder {
+    clear: both;
+    float: left;
+    width: 710px;
+}
+.area-listing {
+	float: left;
+	margin: 0 10px 20px 0;
+	width: 230px;
+}
+
+.area-listing-search {
+    margin: 0 0 20px;
+    width: 710px;
+}
+.listing-search {
+    float: right;
+    width: 470px;
+}
+
+.img-listing-item {
+	float: left;
+	margin-right: 50px;
+}
+#secondary {
+	float: right;
+        padding: 20px 0 0 40px;
+	width: 190px;
+}
+.area-secondary {
+	margin: 0 0 20px;
+}
+#img-profile-pic {
+	margin: 0 0 15px;
+}
+
+#related-listings {
+	border-top: 1px #ccc solid;
+	clear: both;
+	padding: 10px 0;
+}
+.area-related-listing {
+	float: left;
+	margin: 0 10px 0 0;
+	width: 150px;
+}
+
+#footer {
+	bottom: 0;
+	clear: both;
+	margin: 30px 0;
+	text-align: center;
+}
+
+/* LISTS */
+#area-tabs a {
+	color: #fff;
+	display: block;
+	font: 14px/30px Georgia, "Times New Roman", Times, serif;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: 88px;
+}
+#area-tabs a:hover {
+	background: #9c3;
+	text-decoration: none;
+}
+#area-tabs a:active {
+	background: #a8ce4c;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+}
+
+#area-tabs li {
+	background: #39c;
+	display: block;
+	float: left;
+	margin: 0 0 0 1px;
+}
+#area-tabs .area-tabs-selected {
+	background: #9c3;
+}
+
+#category li {
+	margin: 0 0 4px 2px;
+}
+
+#secondary ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.area-start li{
+	margin: 0 0 10px;
+	padding: 0 0 0 40px;
+	width: 150px;
+}
+li.start {
+    background: transparent url('../img/tlgy_sprite1.png') no-repeat;
+}
+
+li.started {
+	background-position: 0 -578px;
+}
+li.sell {
+	background-position: 0 -498px;
+}
+li.buy {
+	background-position: 0 -418px;
+}
+
+a.button {
+	background: transparent url('../img/tlgy_sprite1.png') 0 -180px no-repeat;
+	color: #fff;
+	display: block;
+	font: 16px/30px Georgia, "Times New Roman", Times, serif;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 0 40px;
+	padding-right: 40px;
+	text-align: center;
+	width: 150px;
+}
+a.button:hover {
+	background-position: 0 -90px;
+	text-decoration: none;
+}
+a.button:active {
+	background-position: 0 0;
+}
+
+/* FORMS */
+input, textarea { margin: 0 0 0.5em; }
+input, select, textarea { padding: 2px; }
+input[type=text], input[type=password], textarea { width: 320px; }
+select { width: 324px }
+textarea { height: 140px; }
+
+input[type=submit], input[type=reset] {
+    width: 120px;
+}
+
+input[id=user_country_code], input[id=user_area_code], input[id=user_mobile_country_code], input[id=user_mobile_area_code] { width: 35px; }
+input[id=user_telephone], input[id=user_mobile] { width: 85px; }
+
+.area-form-input { margin: 1em 0; }
+.area-form-field { margin-left: 160px; vertical-align: middle; }
+
+legend {
+    color: #9c3;
+    display: block;
+    font: 18px/30px Georgia, "Times New Roman", Times, serif;
+    padding: 0 0 15px;
+}
+
+label {
+	display: inline-block;
+	float: left;
+	font-weight: bold;
+	margin: 0 20px 0 0;
+	vertical-align: top;
+	width: 140px;
+}
+p.error, label.error {
+	color: #F00;
+}
+label.radio-label {
+        display: inline;
+	float: none;
+        font-weight: normal;
+        text-align: left;
+}
+
+#area-search label {
+	display: inline;
+	margin: 0 12px 0;
+	text-align: left;
+	vertical-align: middle;
+	width: auto;
+}
+#area-search select {
+	margin: 0 10px 0 0;
+	width: 230px;
+}
+#area-search input[type=text] {
+	margin: 0 10px 0 0;
+	width: 520px;
+}
+#area-search input[type=submit] {
+	background: #9c3 url('../img/tlgy_sprite1.png') 0 -346px no-repeat;
+	border: 0 none;
+	color: #fff;
+	cursor: link;
+	font: 12px/12px Georgia, "Times New Roman", Times, serif;
+	height: 26px;
+	margin: 0;
+	padding: 0 22px 0 0;
+	width: 80px
+}
+#area-search input[type=submit]:active {
+	background-position: 0 -270px;
+}
+
+/* END FORMS */
+
+/* TABLES */
+#area-listing-table {
+    border-spacing: 2px;
+    width: 710px;
+}
+
+#area-listing-table th {
+    background-color: #39c;
+    color: #fff;
+    font-weight: bold;
+    height: 26px;
+    line-height: 26px;
+}
+th.table-listing-id {
+    width: 60px;
+}
+th.table-listing-name {
+    width: 210px;
+    word-wrap: break-word;
+}
+th.table-listing-activity {
+    width: 160px;
+    word-wrap: break-word;
+}
+th.table-listing-status {
+    width: 100px;
+    word-wrap: break-word;
+}
+
+#area-listing-table td {
+    border: 1px #297aa3 solid;
+    word-wrap: break-word;
+    vertical-align: top;
+}
+
+/* END TABLES */
+
+.noborder {
+	border: 0 !important;
+}
+.clearfix {
+	margin-right: 0 !important;
+}
+.clearfix:after {
+	content: ".";
+	clear: both;
+	display: block;
+	line-height: 0;
+	height: 0;
+	visibility: hidden;
+}
