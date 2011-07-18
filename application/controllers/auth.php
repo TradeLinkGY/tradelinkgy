@@ -59,9 +59,12 @@ class Auth extends CI_Controller {
                     }
                     return;
                 } else {
+                    $_GET['path'] = $path; //setting this would allow for redirection to page even if more than 1 login attempts.
                     $this->args['login_err'] = TRUE;
                     $this->load->view('login_view', $this->args);
                 }
+            } else {
+                $this->load->view('login_view', $this->args);
             }
         }
         $this->load->view('footer_view');

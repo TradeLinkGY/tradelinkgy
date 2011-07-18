@@ -1,3 +1,4 @@
+<?php echo validation_errors(); ?>
 <?php if(isset($login_err) && $login_err): ?>
     <div>Username/Password combination invalid</div>
 <?php endif;?>
