@@ -27,20 +27,22 @@
     
     <div class="area-form-input">
         <?= form_label('Telephone:','user_country_code') ?>
+        <?php $telephone = $this->functions->parse_telephone($user->user_phone);?>
         <div class="area-form-field">
-                <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3')/*, $user->user_country_code*/); ?>
-                <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3')/*, $user->user_area_code*/); ?>
-                <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7'), $user->user_phone ); ?>
+                <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3'), $telephone['country_code']); ?>
+                <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3'), $telephone['area_code']); ?>
+                <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7'), $telephone['number']); ?>
                 <?= form_error('user_telephone','<p class="error">', '</p>'); ?>
         </div>
     </div>
     
     <div class="area-form-input">
         <?= form_label('Mobile:','user_mobile_country_code') ?>
+        <?php $mobile = $this->functions->parse_telephone($user->user_mobile);?>
         <div class="area-form-field">
-                <?= form_input(array('id' => 'user_mobile_country_code', 'maxlength' => '3')/*, $user->user_mobile_country_code*/); ?>
-		<?= form_input(array('id' => 'user_mobile_area_code', 'maxlength' => '3'/*, $user->user_mobile_area_code*/)); ?>
-		<?= form_input(array('id' => 'user_mobile', 'maxlength' => '7'), $user->user_mobile); ?>
+                <?= form_input(array('id' => 'user_mobile_country_code', 'maxlength' => '3'), $mobile['country_code']); ?>
+		<?= form_input(array('id' => 'user_mobile_area_code', 'maxlength' => '3'), $mobile['area_code']); ?>
+		<?= form_input(array('id' => 'user_mobile', 'maxlength' => '7'), $mobile['number']); ?>
                 <?= form_error('user_mobile','<p class="error">', '</p>'); ?>
         </div>
     </div>
@@ -58,7 +60,7 @@
     <div class="area-form-input">
         <?= form_label('City:','user_address_city') ?>
 		<div class="area-form-field">
-                    <p><?= form_input(array('id' => 'user_address_city', 'name' => 'user_address_city', 'value' => set_value('user_address_city'))); ?></p>
+                    <p><?= form_input(array('id' => 'user_address_city', 'name' => 'user_address_city'), $user->user_address_city); ?></p>
                     <?= form_error('user_address_city','<p class="error">', '</p>'); ?>
 		</div>
     </div>
@@ -316,7 +318,7 @@
     <div class="area-form-input">
         <?= form_label('Country:','user_address_country') ?>
         <div class="area-form-field">
-            <p><?= form_dropdown('user_address_country', $countries, 'GY' /* CHANGE TO $user->country */); ?></p>
+            <p><?= form_dropdown('user_address_country', $countries, $user->user_address_country); ?></p>
             <?= form_error('user_address_country','<p class="error">', '</p>'); ?>
         </div>
     </div>

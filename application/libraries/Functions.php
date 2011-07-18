@@ -30,23 +30,18 @@ class Functions {
     }
 
     function parse_telephone($str_telephone) {
-        switch (strlen($str_telephone)) {
-            case 10: // number format 5922161611
-                return array(
-                    'country_code' => substr($str_telephone, 0, 3),
-                    'area_code' => substr($str_telephone, 3, 3),
-                    'number' => substr($str_telephone, 6, 4));
-            case 13 : // number format +592-216-1611
-                return array(
-                    'country_code' => substr($str_telephone, 1, 3),
-                    'area_code' => substr($str_telephone, 5, 3),
-                    'number' => substr($str_telephone, 9, 4));
-            case 12: // number format 592-216-1611
-                return array(
-                    'country_code' => substr($str_telephone, 0, 3),
-                    'area_code' => substr($str_telephone, 4, 3),
-                    'number' => substr($str_telephone, 8, 4));
-        }
+        
+        $result = array();
+
+        if(substr($str_telephone, 0, 1) == '+')
+                $result['country_code'] = substr($str_telephone, 1, 3 );
+        if(substr($str_telephone, 4, 1)=='-')
+                $result['area_code']= substr($str_telephone, 5,3);
+        if(substr($str_telephone, 8, 1)=='-')
+                $result['number']= substr($str_telephone, 9,4);
+        
+        return $result;
+        
     }
     
     function join_telephone($country_code, $area_code, $number){

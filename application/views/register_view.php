@@ -1,4 +1,4 @@
-<?= form_open('auth/register', array('class' => 'form-content', 'id' => 'register')); ?>
+<?= form_open('auth/register'); ?>
 
 <?= form_fieldset('Personal Information'); ?>
     <div class="area-form-input">
@@ -312,34 +312,31 @@
 <?= form_fieldset('Account Information'); ?>
     <div class="area-form-input">
         <?= form_label('Email:','user_email') ?>
-        <div class="area-form-field">
-                <p><?= form_input(array('id' => 'user_email', 'name' => 'user_email', 'value' => set_value('user_email'))); ?></p>
-                <?= form_error('user_email','<p class="error">', '</p>'); ?>
-        </div>
+		<div class="area-form-field">
+                        <p><?= form_input(array('id' => 'user_email', 'name' => 'user_email', 'value' => set_value('user_email'))); ?></p>
+                        <?= form_error('user_email','<p class="error">', '</p>'); ?>
+		</div>
     </div>
     <div class="area-form-input">
         <?= form_label('Password:','user_password') ?>
-        <div class="area-form-field">
-                <p><?= form_password(array('id' => 'user_password', 'name' => 'user_password')); ?></p>
-                <?= form_error('user_password','<p class="error">', '</p>'); ?>
-        </div>
+		<div class="area-form-field">
+                        <p><?= form_password(array('id' => 'user_password', 'name' => 'user_password')); ?></p>
+                        <?= form_error('user_password','<p class="error">', '</p>'); ?>
+		</div>
     </div>
     <div class="area-form-input">
         <?= form_label('Confirm Password:','user_confpass') ?>
-        <div class="area-form-field">
-                <p><?= form_password(array('id' => 'user_confpass', 'name' => 'user_confpass')); ?></p>
-                <?= form_error('user_confpass','<p class="error">', '</p>'); ?>
-        </div>
+		<div class="area-form-field">
+                        <p><?= form_password(array('id' => 'user_confpass', 'name' => 'user_confpass')); ?></p>
+                        <?= form_error('user_confpass','<p class="error">', '</p>'); ?>
+		</div>
     </div>
 <?= form_fieldset_close(); ?>
-    <div class="area-form-input">
 	<div class="area-form-field">
-            <p><?= form_checkbox(array('id' => 'user_agree', 'name' => 'user_confpass'), 'agree', set_checkbox('user_agree','agree')); ?>
-            <?= form_label('I agree to the Terms of Service','user_agree', array('class' => 'inline-label')); ?></p>
+            <p><?= form_checkbox('user_agree', 'agree', set_checkbox('user_agree','agree')); ?> I agree to the Terms of Service</p>
 	</div>
-    </div>
 	<div class="area-form-field">
-            <?= form_submit('btn_register', 'Register'); ?>
-            <?= form_reset('btn_reset', 'Reset'); ?>
+		<?= form_submit('btn_register', 'Register'); ?>
+		<?= form_reset('btn_reset', 'Reset'); ?>
 	</div>
 <?= form_close(); ?>
