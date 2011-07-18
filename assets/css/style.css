@@ -70,6 +70,13 @@ p {
 .listing-info .listing-label {
 	margin: 5px 0;
 }
+.listing-sub-info {
+    font-size: 12px;
+}
+
+span.price {
+    color: #9c3;
+}
 
 #description {
 	margin: 20px 0 5px;
@@ -110,12 +117,12 @@ h2>span {
 }
 h3 {
 	color: #39c;
-	font: bold 16px/24px Arial, Helvetica, san-serif;
+	font: 16px/24px Arial, Helvetica, san-serif;
 	margin: 0 0 5px;
 }
 h4,h5,h6 {
 	color: #9c3;
-	font: bold 13px/20px Arial, Helvetica, san-serif;
+	font: 13px/20px Arial, Helvetica, san-serif;
 }
 #secondary h4 {
 	margin: 0 0 5px;

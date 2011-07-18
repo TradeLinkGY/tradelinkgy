@@ -16,15 +16,18 @@ $counter = 0;
             ?>
 
             <div class="area-listing <?php if (++$counter == 3) echo (" clearfix"); ?>">
-                     <?php echo (anchor($links['link_listing'], '<img alt="' . $row->listing_desc . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />')); ?>
+                <?php echo (anchor($links['link_listing'], '<img alt="' . $row->listing_name . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />')); ?>
                 <h3><?php echo (anchor($links['link_listing'] . $row->id_listing, $row->listing_name)); ?></h3>
-                <h4>Price: <?php echo($row->listing_price); ?></h4>
-                <p><?php echo($row->listing_location); ?></p>
-                <p>Posted <?php echo $row->listing_created; ?></p>
+                <p><?php echo $this->functions->cut_string($row->listing_desc, 30); ?></p>
+                <p class="listing-sub-info"><?php echo($row->listing_location); ?></p>
+                
+                <?php if ($row->listing_price): ?>
+                    <p>Price: <span class="price">$<?php echo($row->listing_price); ?></span></p>
+                <?php endif;?>
             </div>
 
         <?php endforeach; ?>
-        
+
         <?php $counter = 0; ?>
         </div>
 
@@ -36,18 +39,20 @@ $counter = 0;
         <div class="area-listing-holder">
         <?php foreach ($recent_listings as $row): ?>
             <?php
-            $image = 'tlgy_noitem.jpg';
-            if (isset($row->name_image))
-                $image = $row->name_image;
+                $image = 'tlgy_noitem.jpg';
+                if (isset($row->name_image))
+                    $image = $row->name_image;
             ?>
 
-            <div class="area-listing<?php if (++$counter == 3)
-            echo (" clearfix"); ?>">
-                     <?php echo (anchor($links['link_listing'], '<img alt="' . $row->listing_desc . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />')); ?>
+            <div class="area-listing<?php if (++$counter == 3) echo (" clearfix"); ?>">
+                <?php echo (anchor($links['link_listing'], '<img alt="' . $row->listing_desc . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />')); ?>
                 <h3><?php echo (anchor($links['link_listing'] . $row->id_listing, $row->listing_name)); ?></h3>
-                <h4>Price: <?php echo($row->listing_price); ?></h4>
-                <p><?php echo($row->listing_location); ?></p>
-                <p>Posted <?php echo $row->listing_created; ?></p>
+                <p><?php echo $this->functions->cut_string($row->listing_desc, 30); ?></p>
+                <p class="listing-sub-info"><?php echo($row->listing_location); ?></p>
+                    
+                <?php if ($row->listing_price): ?>
+                    <p>Price: <span class="price">$<?php echo($row->listing_price); ?></span></p>
+                <?php endif;?>
             </div>
 
         <?php endforeach; ?>
@@ -58,16 +63,14 @@ $counter = 0;
     </div>
 </div>
 
-
-
 <div id="secondary" class="clearfix">
     <div class="area-secondary">
         <h2>Browse the Market</h2>
         <ul id="category">
             <?php
-            foreach ($categories as $row) {
-                echo ('<li>' . anchor($links['link_category'] . $row->id_category, $row->name_category) . '</li>');
-            }
+                foreach ($categories as $row) {
+                    echo ('<li>' . anchor($links['link_category'] . $row->id_category, $row->name_category) . '</li>');
+                }
             ?>
         </ul>
     </div>
@@ -85,7 +88,7 @@ $counter = 0;
             </li>
             <li class="start buy">
                 <p><a href="#" title="Learn how to buy items using TradeLinkGY.com">How to buy</a></p>
-                <p>Learn how to capitalise on these incredible offers.</p>
+                <p>Learn how to take advantage of these incredible offers.</p>
             </li>
         </ul>
     </div>
