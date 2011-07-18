@@ -5,8 +5,8 @@ if (!defined('BASEPATH'))
 
 class Listings extends CI_Controller {
 
-    private $meta;
-    private $args;
+    private $meta = array();
+    private $args = array();
 
     public function __construct() {
         parent::__construct();
@@ -46,10 +46,7 @@ class Listings extends CI_Controller {
         $this->load->view('header_view', $this->meta);
         $this->load->view('listing_view', $this->args);
         $this->load->view('footer_view');
-
     }
 
 }
-
-
 
