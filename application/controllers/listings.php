@@ -52,7 +52,22 @@ class Listings extends CI_Controller {
     public function insert_listing() {
         $uri = $_SERVER['REQUEST_URI'];
         if ($this->user->is_logged_in()) {
-            echo 'nice';
+            $this->load->view('header_view', $this->meta);
+            if (!$_POST) {
+                
+            } else {
+                $this->form_validation->set_rules('listing_name', 'required|trim');
+
+                if ($this->form_validation->run()) {
+                    $this->listings->insert_listing(
+                            //vars
+                            $id_user, $id_subcategory, $listing_name, $listing_desc, $listing_keywords, $listing_price, $listing_userdesc, $listing_featured, $listing_status, $listing_created, $listing_expiry_period, $listing_inserted_by
+                    );
+                } else {
+                    
+                }
+            }
+            $this->load->view('footer_view');
         } else {
             redirect("auth/login/?path=$uri");
         }
