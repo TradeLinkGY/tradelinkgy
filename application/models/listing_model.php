@@ -250,8 +250,7 @@ class Listing_model extends CI_Model {
             'desc_category'
         );
 
-        $this->db
-                ->select($select_fields)
+        $this->db                
                 ->from('listing_tb')
                 ->where($where);
 
