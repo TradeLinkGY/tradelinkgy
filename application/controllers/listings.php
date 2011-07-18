@@ -47,7 +47,6 @@ class Listings extends CI_Controller {
         $this->load->view('listing_view', $this->args);
         $this->load->view('footer_view');
 
-        
     }
 
 }
