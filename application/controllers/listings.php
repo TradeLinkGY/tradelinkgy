@@ -13,6 +13,7 @@ class Listings extends CI_Controller {
         $this->load->helper('language');
         $this->load->model('listing_model', 'listings');
         $this->load->model('category_model', 'category');
+        $this->load->model('user_model', 'user');
         $this->meta['css'] = array('style');
         $this->args['categories'] = $this->category->get_all_categories();
     }
@@ -46,6 +47,15 @@ class Listings extends CI_Controller {
         $this->load->view('header_view', $this->meta);
         $this->load->view('listing_view', $this->args);
         $this->load->view('footer_view');
+    }
+
+    public function insert_listing() {
+        $uri = $_SERVER['REQUEST_URI'];
+        if ($this->user->is_logged_in()) {
+            echo 'nice';
+        } else {
+            redirect("auth/login/?path=$uri");
+        }
     }
 
 }

@@ -17,19 +17,18 @@ class Auth extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('pagination');
         $this->load->library('functions');
-        
+
         $this->args['links'] = array(
-            'img_dir' => base_url().'assets/img/',
+            'img_dir' => base_url() . 'assets/img/',
             'link_category' => 'category/',
             'link_listing' => 'listings/display/');
         $this->args['categories'] = $this->category->get_all_categories();
-        
+
         $this->meta['css'] = array('style');
         $this->meta['categories'] = $this->args['categories'];
     }
 
     public function login() {
-
         $this->meta['css'] = array('style');
 
         $this->args['categories'] = $this->category->get_all_categories();
@@ -37,10 +36,10 @@ class Auth extends CI_Controller {
 
         $this->load->view('header_view', $this->meta);
 
-        if (!$_POST)
+        if (!$_POST) {
             $this->load->view('login_view', $this->args);
-        else {
-            $path = $this->input->get('current_url');
+        } else {
+            $path = $this->input->post('path');
             $this->form_validation->set_rules('user_email', 'email_address', 'required|trim|valid_email');
             $this->form_validation->set_rules('user_password', 'password', 'required');
             if ($this->form_validation->run()) {
@@ -122,26 +121,22 @@ class Auth extends CI_Controller {
             $this->form_validation->set_rules('user_title', 'Title', 'trim');
 
             $telephone =
-            $this->functions->join_telephone(
-                    $this->input->post('user_country_code'),
-                    $this->input->post('user_area_code'),
-                    $this->input->post('user_telephone')
-                    );
-            
+                    $this->functions->join_telephone(
+                            $this->input->post('user_country_code'), $this->input->post('user_area_code'), $this->input->post('user_telephone')
+            );
+
 
             $mobile =
                     $this->input->post('user_mobile') ?
                     $this->functions->join_telephone(
-                            $this->input->post('user_mobile_country_code'), 
-                            $this->input->post('user_mobile_area_code'), 
-                            $this->input->post('user_mobile')
-                            ) : '';
+                            $this->input->post('user_mobile_country_code'), $this->input->post('user_mobile_area_code'), $this->input->post('user_mobile')
+                    ) : '';
 
             if (!$this->form_validation->run()) {
                 $this->load->view('register_view');
             } else {
                 if ($this->user->insert_user(
-                                $this->input->post('user_title'), $this->input->post('user_fullname'), $this->input->post('user_email'), $this->input->post('user_password'), $telephone, $mobile, $this->input->post('user_address_street'), $this->input->post('user_address_secondary'), $this->input->post('user_address_city'),$this->input->post('user_address_country'), 'user')) {
+                                $this->input->post('user_title'), $this->input->post('user_fullname'), $this->input->post('user_email'), $this->input->post('user_password'), $telephone, $mobile, $this->input->post('user_address_street'), $this->input->post('user_address_secondary'), $this->input->post('user_address_city'), $this->input->post('user_address_country'), 'user')) {
                     // SEND A CONFIRMATION EMAIL HERE
                     $this->args['action'] = 'Registered';
                     $this->load->view('confirmation_view', $this->args);
@@ -161,7 +156,7 @@ class Auth extends CI_Controller {
             redirect('auth/login');
         else {
             $this->args['user'] = $this->user->get_user($this->session->userdata('uid'));
-            
+
             switch ($this->uri->segment(3)) {
                 default:;
                 case 'my_listings':
@@ -182,7 +177,7 @@ class Auth extends CI_Controller {
                     break;
                 case 'basic':
                     if ($_POST) {
-                    /*  $this->form_validation->set_rules('user_title', 'Salutation', 'required');    */
+                        /*  $this->form_validation->set_rules('user_title', 'Salutation', 'required');    */
                         $this->form_validation->set_rules('user_fullname', 'Full Name', 'required');
                         $this->form_validation->set_rules('user_telephone', 'Telephone', 'required');
                         $this->form_validation->set_rules('user_mobile', 'Mobile', '');

@@ -7,6 +7,10 @@ class User_model extends CI_Model {
         $this->load->library('functions');
     }
 
+    function is_logged_in() {
+        return $this->session->userdata('uid') ? true : false;
+    }
+
     function get_user($id_user) {
         $this->db->where('id_user', $id_user);
         $query = $this->db->get('user_tb');
@@ -119,7 +123,7 @@ class User_model extends CI_Model {
         return FALSE;
     }
 
-    function edit_user($user_data){
+    function edit_user($user_data) {
         $this->db->where('id_user', $user_data['id_user']);
         $this->db->update('user_tb', $user_data);
         return TRUE;

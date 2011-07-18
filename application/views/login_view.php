@@ -3,6 +3,7 @@
 <?php endif;?>
     
 <?= form_open('auth/login', array('class' => 'form-content', 'id' => 'register')); ?>
+    <?= form_hidden('path', $this->input->get('path')); ?>
     <?= form_fieldset('Login to your account'); ?>
     <div class="area-form-input">
         <?= form_label('Email:', 'user_email'); ?>
