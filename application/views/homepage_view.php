@@ -149,7 +149,7 @@ $counter = 0;
 
     </div>
 
-    <a class="button" href="#">Add your listing</a>
+    <a class="button" href="<?=site_url();?>/listings/insert_listing">Add your listing</a>
 
     <div class="area-secondary">
 
