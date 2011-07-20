@@ -30,22 +30,25 @@ class Functions {
     }
 
     function parse_telephone($str_telephone) {
-        
         $result = array();
 
-        if(substr($str_telephone, 0, 1) == '+')
-                $result['country_code'] = substr($str_telephone, 1, 3 );
-        if(substr($str_telephone, 4, 1)=='-')
-                $result['area_code']= substr($str_telephone, 5,3);
-        if(substr($str_telephone, 8, 1)=='-')
-                $result['number']= substr($str_telephone, 9,4);
-        
+        if (substr($str_telephone, 0, 1) == '+')
+            $result['country_code'] = substr($str_telephone, 1, 3);
+        if (substr($str_telephone, 4, 1) == '-')
+            $result['area_code'] = substr($str_telephone, 5, 3);
+        if (substr($str_telephone, 8, 1) == '-')
+            $result['number'] = substr($str_telephone, 9, 4);
+
+        isset($result['country_code']) ? $result['country_code'] = $result['country_code'] : $result['country_code'] = '';
+        isset($result['area_code']) ? $result['area_code'] = $result['area_code'] : $result['area_code'] = '';
+        isset($result['number']) ? $result['number'] = $result['number'] : $result['number'] = '';
+
         return $result;
-        
     }
-    
-    function join_telephone($country_code, $area_code, $number){
-        return '+'.$country_code.'-'.$area_code.'-'.$number;
+
+    function join_telephone($country_code, $area_code, $number) {
+        if ($country_code && $area_code && $number)
+            return '+' . $country_code . '-' . $area_code . '-' . $number;
     }
 
 }

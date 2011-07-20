@@ -183,16 +183,38 @@ class Auth extends CI_Controller {
                         /*  $this->form_validation->set_rules('user_title', 'Salutation', 'required');    */
                         $this->form_validation->set_rules('user_fullname', 'Full Name', 'required');
                         $this->form_validation->set_rules('user_telephone', 'Telephone', 'required');
-                        $this->form_validation->set_rules('user_mobile', 'Mobile', '');
-                        $this->form_validation->set_rules('user_address', 'Address', 'trim');
+                        if ($this->input->post('user_mobile_country_code') ||
+                                $this->input->post('user_mobile_area_code') ||
+                                $this->input->post('user_mobile')) {
+                            $this->form_validation->set_rules('user_mobile_country_code', 'Mobile Country Code', 'numeric|required');
+                            $this->form_validation->set_rules('user_mobile_area_code', 'Mobile Area Code', 'numeric|required');
+                            $this->form_validation->set_rules('user_mobile', 'Mobile Number', 'numeric|required');
+                        }
+
+
+                        $telephone =
+                                $this->functions->join_telephone(
+                                        $this->input->post('user_country_code'), $this->input->post('user_area_code'), $this->input->post('user_telephone')
+                        );
+
+
+                        $mobile =
+                                $this->functions->join_telephone(
+                                        $this->input->post('user_mobile_country_code'), $this->input->post('user_mobile_area_code'), $this->input->post('user_mobile')
+                        );
+
+
                         if ($this->form_validation->run()) {
                             if ($this->user->edit_user(array(
                                         'id_user' => $this->args['user']->id_user,
                                         'user_salutation' => $this->input->post('user_title'),
                                         'user_fullname' => $this->input->post('user_fullname'),
-                                        'user_phone' => $this->input->post('user_telephone'),
-                                        'user_mobile' => $this->input->post('user_mobile'),
-                                        'user_address' => $this->input->post('user_address')
+                                        'user_phone' => $telephone,
+                                        'user_mobile' => $mobile,
+                                        'user_address_street' => $this->input->post('user_address_street'),
+                                        'user_address_secondary' => $this->input->post('user_address_secondary'),
+                                        'user_address_city' => $this->input->post('user_address_city'),
+                                        'user_address_country' => $this->input->post('user_address_country')
                                     )))
                                 $this->args['msg'] = 'Sucessfully updated personal information';
                             $this->args['user'] = $this->user->get_user($this->session->userdata('uid'));
