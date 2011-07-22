@@ -104,7 +104,11 @@ a:active{ position: relative; top: 1px }
 .area-listing-search>a { display: block; float: left; margin: 5px 0; }
 
 h1 {
-	
+	color: #9c3;
+	font: 24px/30px Georgia, "Times New Roman", Times, serif;
+        font-variant: small-caps;
+        letter-spacing: 1px;
+	margin: 0 0 15px;
 }
 h2 {
 	color: #9c3;
@@ -324,6 +328,10 @@ li.buy {
 	background-position: 0 -418px;
 }
 
+.list-form {
+    margin-left: 15px;
+}
+
 a.button {
 	background: transparent url('../img/tlgy_sprite1.png') 0 -180px no-repeat;
 	color: #fff;
@@ -365,16 +373,24 @@ textarea {
     padding: 2px;
 }
 
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
     margin-right: 4px;
     padding: 0;
 }
 
 input[type=text], input[type=password], textarea { width: 320px; }
+input[type=file] { display: block; width: 320px; }
 input[type=submit], input[type=reset] { width: 120px; }
 
 input[id=user_country_code], input[id=user_area_code], input[id=user_mobile_country_code], input[id=user_mobile_area_code] { width: 35px; }
 input[id=user_telephone], input[id=user_mobile] { width: 85px; }
+
+#prod_currency {
+    width: 65px;
+}
+#prod_price {
+    width: 253px;
+}
 
 .area-form-input { margin: 1em 0; }
 .area-form-field { margin-left: 160px; vertical-align: middle; }
@@ -395,17 +411,19 @@ label {
 	float: left;
 	font-weight: bold;
 	margin: 0 20px 0 0;
+        text-align: right;
 	vertical-align: top;
 	width: 140px;
 }
 p.error, label.error {
 	color: #F00;
+        text-align: left;
 }
 label.inline-label {
         display: inline-block;
 	float: none;
         font-weight: normal;
-        margin: -1px 0 0;
+        margin: -1px 15px 0 0;
         text-align: left;
         width: auto;
 }
