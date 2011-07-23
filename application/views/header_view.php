@@ -7,9 +7,11 @@ $title = "TradeLinkGY.com | Your Premier Listings Resource"; // REPLACE with pag
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><?php echo($title); ?></title>
-        <?php foreach ($css as $style): ?>
-            <link href="<?= base_url(); ?>assets/css/<?= $style ?>.css" rel="stylesheet" type="text/css" media="screen" />
-        <?php endforeach; ?>
+    <?php foreach ($css as $style): ?>
+        <link href="<?= base_url(); ?>assets/css/<?= $style ?>.css" rel="stylesheet" type="text/css" media="screen" />
+    <?php endforeach; ?>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
     </head>
 
     <body>
@@ -31,7 +33,7 @@ $title = "TradeLinkGY.com | Your Premier Listings Resource"; // REPLACE with pag
                 </span>
 
                 <ul id="area-tabs">
-                    <li class="area-tabs-selected"><?php echo(anchor('#', 'Deals')); ?></li>
+                    <li class="area-tabs-selected"><?php echo(anchor('#', 'Products')); ?></li>
                     <li><?php echo(anchor('#', 'Services')); ?></li>
                 </ul>
                 <?php echo form_open('home/search', array('id' => 'area-search')); ?>

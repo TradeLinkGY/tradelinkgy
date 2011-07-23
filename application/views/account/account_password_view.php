@@ -21,14 +21,14 @@
         </div>
 
         <div class="area-form-input">
-            <?= form_label('New Email:','password') ?>
+            <?= form_label('New Password:','password') ?>
             <div class="area-form-field">
                     <p><?= form_password(array('id' => 'password', 'name' => 'password')); ?></p>
             </div>
         </div>
 
         <div class="area-form-input">
-            <?= form_label('Confirm Email:','passwordconf') ?>
+            <?= form_label('Confirm Password:','passwordconf') ?>
             <div class="area-form-field">
                     <p><?= form_password(array('id' => 'passwordconf', 'name' => 'passwordconf')); ?></p>
             </div>
@@ -43,3 +43,21 @@
     <?= form_close(); ?>
 
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    $('#passwordconf').blur(function() {
+        var user_password = $('#password').val();
+        var user_confpass = $('#passwordconf').val();
+        $.post('<?php echo base_url()?>index.php/test/ajax_confpass', { 'user_password':user_password, 'user_confpass':user_confpass },
+            function(data) {
+                $('#field-password').replaceWith('');
+                if (data) {
+                    $('#passwordconf').after('<p id="field-password" class="error">' + data + '</p>');
+                }
+            }, "json"
+        );
+    });
+
+});
+</script>

@@ -18,6 +18,10 @@
             <p><?= form_password(array('id' => 'user_password', 'name' => 'user_password')); ?></p>
         </div>
     </div>
+    <div class="area-form-field">
+        <p><?= form_checkbox(array('id' => 'user_remember', 'name' => 'user_remember', 'value' => 'remember', 'checked' => set_checkbox('user_remember', 'remember', FALSE))); 
+            echo form_label('Stay logged in','user_remember', array('class'=>'inline-label')) ?></p></p>
+    </div>
     <div class="area-form-input">
         <div class="area-form-field">
             <?= form_submit('btn_login', 'Login'); ?>
