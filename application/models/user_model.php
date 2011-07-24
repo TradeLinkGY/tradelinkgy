@@ -24,6 +24,20 @@ class User_model extends CI_Model {
         return FALSE;
     }
 
+    function list_users($user_data) {
+        $this->db->select('user_fullname');
+        $this->db->from('user_tb');
+        $this->db->like('user_fullname', $user_data);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $user_list[] = $row->user_fullname;
+            }
+            return $user_list;
+        }
+        return FALSE;
+    }
+    
     function unique_email($email) {
         $this->db->where('user_email', $email);
         $query = $this->db->get('user_tb');

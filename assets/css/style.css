@@ -276,7 +276,7 @@ h4,h5,h6 {
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
-	width: 88px;
+	width: 95px;
 }
 #area-tabs a:hover {
 	background: #9c3;
@@ -363,33 +363,53 @@ input {
 }
 
 select {
+    
     padding: 2px;
-    width: 324px;
+    width: 335px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 textarea {
     height: 140px;
     margin: 0 0 0.5em;
     padding: 2px;
+    width: 335px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+
 }
 
 input[type=checkbox], input[type=radio] {
-    margin-right: 4px;
+    margin-right: 5px;
     padding: 0;
 }
 
-input[type=text], input[type=password], textarea { width: 320px; }
-input[type=file] { display: block; width: 320px; }
+input[type=text], input[type=password] { 
+    width: 335px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */ 
+}
+input[type=file] { 
+    display: block; 
+    width: 335px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */ 
+}
 input[type=submit], input[type=reset] { width: 120px; }
 
-input[id=user_country_code], input[id=user_area_code], input[id=user_mobile_country_code], input[id=user_mobile_area_code] { width: 35px; }
-input[id=user_telephone], input[id=user_mobile] { width: 85px; }
+input[id=user_country_code], input[id=user_area_code], input[id=user_mobile_country_code], input[id=user_mobile_area_code] { width: 50px; }
+input[id=user_telephone], input[id=user_mobile] { width: 105px; }
 
 #prod_currency {
-    width: 65px;
+    width: 70px;
 }
 #prod_price {
-    width: 253px;
+    width: 262px;
 }
 
 .area-form-input { margin: 1em 0; }
@@ -423,8 +443,9 @@ label.inline-label {
         display: inline-block;
 	float: none;
         font-weight: normal;
-        margin: -1px 15px 0 0;
+        margin: -3px 15px 0 0;
         text-align: left;
+        vertical-align: middle;
         width: auto;
 }
 
@@ -510,4 +531,24 @@ th.table-listing-status {
 	line-height: 0;
 	height: 0;
 	visibility: hidden;
+}
+
+/* jQuery STYLING */
+.ui-autocomplete {
+    background: #fff;
+    border-left: 1px #999 solid;
+    border-right: 1px #999 solid;
+    border-bottom: 1px #999 solid;
+    list-style-type: none;
+    width: 321px;
+}
+.ui-autocomplete a {
+    color: #333;
+    cursor: pointer;
+    display: block;
+    padding-left: 3px;
+}
+.ui-autocomplete a:hover {
+    background: #efefef;
+    text-decoration: none;
 }

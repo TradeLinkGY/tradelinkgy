@@ -331,12 +331,46 @@
                         <?= form_error('user_confpass','<p class="error">', '</p>'); ?>
 		</div>
     </div>
+
+    <div class="area-form-field">
+        <p><?= form_checkbox(array('id' => 'user_agree', 'name' => 'user_agree', 'value' => 'agree', 'checked' => set_checkbox('user_agree', 'agree', FALSE))); 
+            echo form_label('I agree to the Terms of Service','user_agree', array('class'=>'inline-label')) ?></p>
+    </div>
 <?= form_fieldset_close(); ?>
-	<div class="area-form-field">
-            <p><?= form_checkbox('user_agree', 'agree', set_checkbox('user_agree','agree')); ?> I agree to the Terms of Service</p>
-	</div>
 	<div class="area-form-field">
 		<?= form_submit('btn_register', 'Register'); ?>
 		<?= form_reset('btn_reset', 'Reset'); ?>
 	</div>
 <?= form_close(); ?>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('#user_email').blur(function() {
+        var user_email = $('#user_email').val();
+        $.post('<?php echo base_url()?>index.php/test/ajax_email', { 'user_email':user_email },
+            function(data) {
+                $('#field-username').replaceWith('');
+                if (data) {
+                    $('#user_email').after('<p id="field-username" class="error">' + data + '</p>');
+                }
+            }, "json"
+        );
+    });
+    
+    $('#user_confpass').blur(function() {
+        var user_password = $('#user_password').val();
+        var user_confpass = $('#user_confpass').val();
+        $.post('<?php echo base_url()?>index.php/test/ajax_confpass', { 'user_password':user_password, 'user_confpass':user_confpass },
+            function(data) {
+                $('#field-password').replaceWith('');
+                if (data) {
+                    $('#user_confpass').after('<p id="field-password" class="error">' + data + '</p>');
+                }
+            }, "json"
+        );
+    });
+
+
+});
+</script>
