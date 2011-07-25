@@ -210,6 +210,7 @@ h4,h5,h6 {
 	position: relative;
 }
 .pagination-link {
+    display: block;
     float: right;
     margin-bottom: 10px;
 }
@@ -383,7 +384,7 @@ textarea {
 }
 
 input[type=checkbox], input[type=radio] {
-    margin-right: 5px;
+    margin: 0 5px 0 0;
     padding: 0;
 }
 
@@ -483,7 +484,8 @@ label.inline-label {
 
 /* TABLES */
 #area-listing-table {
-    border-spacing: 2px;
+    border: 0px solid #ccc;
+    border-spacing: 0;
     width: 710px;
 }
 
@@ -493,34 +495,53 @@ label.inline-label {
     font-weight: bold;
     height: 26px;
     line-height: 26px;
+    padding: 0 3px;
+    vertical-align: middle;
+}
+th.table-listing-checkbox {
+    text-align: center;
+    width: 35px;
 }
 th.table-listing-id {
-    width: 60px;
+    width: 35px;
 }
 th.table-listing-name {
-    width: 210px;
+    text-align: left;
     word-wrap: break-word;
 }
 th.table-listing-activity {
-    width: 160px;
+    text-align: left;
+    width: 200px;
     word-wrap: break-word;
 }
 th.table-listing-status {
-    width: 100px;
+    text-align: left;
+    width: 60px;
+    word-wrap: break-word;
+}
+th.table-listing-user {
+    text-align: left;
+    width: 120px;
     word-wrap: break-word;
 }
 
 #area-listing-table td {
-    border: 1px #297aa3 solid;
+    padding: 5px;
     word-wrap: break-word;
-    vertical-align: top;
+    vertical-align: middle;
 }
+
+#cell-listing-footer { 
+    font-size: 11px;
+    padding: 10px 0 0 !important; 
+}
+.cell-listing-checkbox { text-align: center; }
+.cell-listing-actions p, .cell-listing-activity p { font-size: 12px; margin: 0; }
 
 /* END TABLES */
 
-.noborder {
-	border: 0 !important;
-}
+.noborder { border: 0 !important; }
+.nomargin { margin: 0 !important; }
 .clearfix {
 	margin-right: 0 !important;
 }

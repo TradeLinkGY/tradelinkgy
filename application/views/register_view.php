@@ -1,4 +1,4 @@
-<?= form_open('auth/register'); ?>
+<?= form_open('auth/register', array('class' => 'form-content', 'id' => 'register')); ?>
 
 <?= form_fieldset('Personal Information'); ?>
     <div class="area-form-input">

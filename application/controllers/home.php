@@ -17,7 +17,12 @@ class Home extends CI_Controller {
         $this->args['links'] = array(
             'img_dir' => base_url().'assets/img/',
             'link_category' => 'category/',
-            'link_listing' => 'listings/display/');
+            'link_listing' => 'listings/display/',
+            'link_about' => '',
+            'link_tos' => 'test/terms',
+            'link_privacy' => '',
+            'link_faq' => ''
+            );
         $this->args['categories'] = $this->category->get_all_categories();
         
         $this->meta['css'] = array('style');
