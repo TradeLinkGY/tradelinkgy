@@ -10,7 +10,7 @@
     <div class="area-secondary">
         <h2>Manage Listings</h2>
         <ul id="category">
-            <li><?= anchor('test/index', 'Create Listing'); ?></li>
+            <li><?= anchor('listings/insert_listing', 'Create Listing'); ?></li>
             <li><?= anchor('auth/account/my_listings', 'Review Listings'); ?></li>
         </ul>
     </div>
