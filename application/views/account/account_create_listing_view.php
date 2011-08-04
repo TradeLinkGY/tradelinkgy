@@ -29,7 +29,7 @@ echo validation_errors();
     <div id="field-fullname" class="area-form-input">
         <?= form_label('Full Name:', 'user_fullname') ?>
         <div class="area-form-field">
-            <p><?= form_input(array('id' => 'user_fullname', 'name' => 'user_fullname', 'value' => set_value('user_fullname'))); ?></p>
+            <p><?= form_input(array('id' => 'user_fullname', 'name' => 'user_fullname', 'value' => set_value('user_fullname'), 'autocomplete'=> 'off')); ?></p>
             <?= form_error('user_fullname', '<p class="error">', '</p>'); ?>
             <p id="field-btn-find">
                 <?= form_submit('btn_find_user', 'Find User'); ?>
