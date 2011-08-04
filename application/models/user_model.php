@@ -8,7 +8,13 @@ class User_model extends CI_Model {
     }
 
     function is_logged_in() {
-        return $this->session->userdata('uid') ? true : false;
+        return $this->session->userdata('uid') ? TRUE : FALSE;
+    }
+
+    function is_admin($id=FALSE) {
+        if (!$id)
+            $id = $this->session->userdata('uid');
+        return $this->get_user($id)->user_usertype == 'admin' ? TRUE : FALSE;
     }
 
     function get_user($id_user) {
@@ -37,7 +43,7 @@ class User_model extends CI_Model {
         }
         return FALSE;
     }
-    
+
     function unique_email($email) {
         $this->db->where('user_email', $email);
         $query = $this->db->get('user_tb');
@@ -93,24 +99,24 @@ class User_model extends CI_Model {
 
         $this->db->insert('user_tb', $data);
         if ($this->db->affected_rows() > 0)
-            return TRUE;
+            return $this->db->insert_id();
         return FALSE;
     }
 
-    function insert_user_temp($temp_password, $salutation, $fullname, $email, $telephone, $mobile, $address) {
+    function insert_user_temp($temp_password, $salutation, $fullname, $email, $telephone, $mobile, $country) {
         $data = array(
             'user_salutation' => $salutation,
             'user_fullname' => $fullname,
             'user_temp_pw' => $temp_password,
-            'user_address' => $address,
+            'user_address_country' => $country,
             'user_email' => $email,
-            'user_telephone' => $telephone,
+            'user_phone' => $telephone,
             'user_mobile' => $mobile,
             'user_usertype' => 'user');
 
         $this->db->insert('user_tb', $data);
         if ($this->db->affected_rows() > 0)
-            return TRUE;
+            return $this->db->insert_id();
         return FALSE;
     }
 

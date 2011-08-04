@@ -21,7 +21,7 @@
     <div class="area-form-input">
         <?= form_label('Email:', 'user_email') ?>
         <div class="area-form-field">
-            <p><?= $user->user_email . ' ' . anchor('auth/change_email', 'Change'); ?></p>
+            <p><?= $user->user_email . ' ' . anchor('auth/account/change_email', 'Change'); ?></p>
         </div>
     </div>
 

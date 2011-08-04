@@ -1,5 +1,6 @@
 <?php
-$form_address = '#';
+$form_address = base_url() . 'index.php/listings/insert_listing';
+echo validation_errors();
 ?>
 
 <div id="content">
@@ -14,13 +15,14 @@ $form_address = '#';
         <?= form_label('Existing User:', 'user_exists') ?>
         <div class="area-form-field">
             <p>
-                <?= form_radio(array('id' => 'user_exists_yes', 'name' => 'user_exists', 'value' => set_value('user_exists_yes'))); ?>
+                <input type="radio" id="user_exists_yes" name="user_exists" value="Yes" <?php echo set_radio('user_exists', 'Yes'); ?> />
                 <?= form_label('Yes, this user exists', 'user_exists_yes', array('class' => 'inline-label')); ?>
             </p>
             <p>
-                <?= form_radio(array('id' => 'user_exists_no', 'name' => 'user_exists', 'value' => set_value('user_exists_no'))); ?>
+                <input type="radio" id="user_exists_no" name="user_exists" value="No" <?php echo set_radio('user_exists', 'No'); ?> />
                 <?= form_label('No, create a new user', 'user_exists_no', array('class' => 'inline-label')); ?>
             </p>
+            <?= form_error('user_exists', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
@@ -28,6 +30,7 @@ $form_address = '#';
         <?= form_label('Full Name:', 'user_fullname') ?>
         <div class="area-form-field">
             <p><?= form_input(array('id' => 'user_fullname', 'name' => 'user_fullname', 'value' => set_value('user_fullname'))); ?></p>
+            <?= form_error('user_fullname', '<p class="error">', '</p>'); ?>
             <p id="field-btn-find">
                 <?= form_submit('btn_find_user', 'Find User'); ?>
             </p>
@@ -48,7 +51,18 @@ $form_address = '#';
             <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3', 'value' => set_value('user_country_code'))); ?>
             <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3', 'value' => set_value('user_area_code'))); ?>
             <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7', 'value' => set_value('user_telephone'))); ?>
-            <?= form_error('user_telephone_number', '<p class="error">', '</p>'); ?>
+            
+            <?php 
+                $array_errs = array();
+                if(form_error('user_country_code'))
+                    array_push($array_errs, 'e');
+                if(form_error('user_area_code'))
+                    array_push($array_errs, 'e');
+                if(form_error('user_telephone'))
+                    array_push($array_errs, 'e');
+                if(count($array_errs)>0)
+                    echo '<p class="error">Please revise telephone number. Format eg.: <i>592 223 1234</i></p>'
+                ?>
         </div>
     </div>
 
@@ -314,7 +328,7 @@ $form_address = '#';
     <div class="area-form-input">
         <?= form_label('Plan Type:', 'prod_plan') ?>
         <div class="area-form-field">
-            <p><?= form_dropdown('prod_plan', array('simple' => 'Simple Listing', 'advanced' => 'Advanced Listing'), 'simple') ;?></p>
+            <p><?= form_dropdown('prod_plan', array('simple' => 'Simple Listing', 'advanced' => 'Advanced Listing'), 'simple'); ?></p>
             <?= form_error('prod_plan', '<p class="error">', '</p>'); ?>
         </div>
     </div>
@@ -358,7 +372,7 @@ $form_address = '#';
         <?= form_label('Description:', 'prod_desc') ?>
         <div class="area-form-field">
             <p><?= form_textarea(array('id' => 'prod_desc', 'name' => 'prod_desc', 'value' => set_value('prod_desc'))); ?></p>
-            <?= form_error('listing_keyword', '<p class="error">', '</p>'); ?>
+            <?= form_error('prod_desc', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
@@ -368,7 +382,8 @@ $form_address = '#';
             <?php $currency = array('GYD' => 'GY$', 'USD' => 'US$'); ?>
             <p><?= form_dropdown('prod_currency', $currency, 'GYD', 'id="prod_currency"'); ?>
                 <?= form_input(array('id' => 'prod_price', 'name' => 'prod_price', 'value' => set_value('prod_price'))); ?></p>
-            <?= form_error('prod_keyword', '<p class="error">', '</p>'); ?>
+            <?= form_error('prod_price', '<p class="error">', '</p>'); ?>
+            <?= form_error('prod_currency', '<p class="error">', '</p>'); ?>
         </div>
     </div>
     <?= form_fieldset_close(); ?>
@@ -389,7 +404,8 @@ $form_address = '#';
     <div class="area-form-input">
         <?= form_label('Upload Photo:', 'filename') ?>
         <div class="area-form-field">
-            <p><?= form_upload(array('id' => 'filename', 'name' => 'filename', 'value' => set_value('filename'), 'size' => '40')); ?></p>
+            <p><?= form_upload(array('id' => 'filename', 'name' => 'filename', 'value' => set_value('filename'), 'size' => '40')); ?>
+            <?=form_hidden(array('name'=>'prod_img_path', 'value'=>set_value('prod_img_path'))); ?></p>
             <?= form_error('filename', '<p class="error">', '</p>'); ?>
             <ul class="list-form">
                 <li>If selected image is not desired, you can browse again for another.</li>
@@ -436,7 +452,7 @@ $form_address = '#';
             var existingUser = $('#user_exists_yes').attr('checked');
             var existingNames = [];
             if (existingUser == 'checked') {
-                $.post('<?php echo base_url() ?>index.php/test/ajax_searchusers', { 'user_fullname':user_fullname },
+                $.post('<?= base_url() ?>index.php/listings/ajax_searchusers', { 'user_fullname':user_fullname },
                 function(data) {
                     $('#user_fullname').autocomplete({
                         source: data
