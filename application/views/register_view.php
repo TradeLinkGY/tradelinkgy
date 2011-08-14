@@ -348,27 +348,37 @@ $(document).ready(function() {
 
     $('#user_email').blur(function() {
         var user_email = $('#user_email').val();
-        $.post('<?php echo base_url()?>index.php/test/ajax_email', { 'user_email':user_email },
-            function(data) {
+        $.ajax({
+            type: "POST",
+            url: '<?php echo base_url()?>index.php/test/ajax_email',
+            data: {user_email: user_email},
+            success: function(data)
+            {
                 $('#field-username').replaceWith('');
                 if (data) {
                     $('#user_email').after('<p id="field-username" class="error">' + data + '</p>');
                 }
-            }, "json"
-        );
+            },
+            dataType: "json"
+        });
     });
     
     $('#user_confpass').blur(function() {
-        var user_password = $('#user_password').val();
-        var user_confpass = $('#user_confpass').val();
-        $.post('<?php echo base_url()?>index.php/test/ajax_confpass', { 'user_password':user_password, 'user_confpass':user_confpass },
-            function(data) {
+        var user_password = $('#password').val();
+        var user_confpass = $('#passwordconf').val();
+        $.ajax({
+            type: "POST",
+            url: '<?php echo base_url()?>index.php/test/ajax_confpass',
+            data: {user_password: user_password, user_confpass: user_confpass},
+            success: function(data)
+            {
                 $('#field-password').replaceWith('');
                 if (data) {
-                    $('#user_confpass').after('<p id="field-password" class="error">' + data + '</p>');
+                    $('#passwordconf').after('<p id="field-password" class="error">' + data + '</p>');
                 }
-            }, "json"
-        );
+            },
+            dataType: "json"
+        });
     });
 
 

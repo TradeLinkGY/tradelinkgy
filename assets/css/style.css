@@ -24,8 +24,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-family: inherit;
 	vertical-align: baseline;
 }
-/* remember to define focus styles! */
-:focus { outline: 0; }
 
 /* Global reset-RESET */
 strong { font-weight:bold }
@@ -364,8 +362,8 @@ input {
 }
 
 select {
-    
-    padding: 2px;
+    border: 1px #ccc solid;
+    padding: 1px;
     width: 335px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -373,6 +371,7 @@ select {
 }
 
 textarea {
+    border: 1px #ccc solid;
     height: 140px;
     margin: 0 0 0.5em;
     padding: 2px;
@@ -389,10 +388,14 @@ input[type=checkbox], input[type=radio] {
 }
 
 input[type=text], input[type=password] { 
+    border: #ccc 1px solid;
     width: 335px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */ 
+}
+select:focus, textarea:focus, input[type=text]:focus, input[type=password]:focus {
+    outline-width: auto 5px;
 }
 input[type=file] { 
     display: block; 
@@ -401,7 +404,9 @@ input[type=file] {
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */ 
 }
-input[type=submit], input[type=reset] { width: 120px; }
+input[type=submit], input[type=reset] { 
+    width: 120px;
+}
 
 input[id=user_country_code], input[id=user_area_code], input[id=user_mobile_country_code], input[id=user_mobile_area_code] { width: 50px; }
 input[id=user_telephone], input[id=user_mobile] { width: 105px; }
@@ -479,6 +484,7 @@ label.inline-label {
 #area-search input[type=submit]:active {
 	background-position: 0 -270px;
 }
+#area-form-preview { display: none; }
 
 /* END FORMS */
 

@@ -12,6 +12,10 @@ $title = "TradeLinkGY.com | Your Premier Listings Resource"; // REPLACE with pag
     <?php endforeach; ?>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+        
+        <script type="text/javascript" src="<?= base_url() ?>assets/js/jquery.fileUploader.js"></script>
+        <link href="<?= base_url(); ?>assets/css/fileuploader/fileUploader.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="<?= base_url(); ?>assets/css/fileuploader/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
 
     <body>

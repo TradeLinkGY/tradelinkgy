@@ -49,14 +49,19 @@ $(document).ready(function() {
     $('#passwordconf').blur(function() {
         var user_password = $('#password').val();
         var user_confpass = $('#passwordconf').val();
-        $.post('<?php echo base_url()?>index.php/test/ajax_confpass', { 'user_password':user_password, 'user_confpass':user_confpass },
-            function(data) {
+        $.ajax({
+            type: "POST",
+            url: '<?php echo base_url()?>index.php/test/ajax_confpass',
+            data: {user_password: user_password, user_confpass: user_confpass},
+            success: function(data)
+            {
                 $('#field-password').replaceWith('');
                 if (data) {
                     $('#passwordconf').after('<p id="field-password" class="error">' + data + '</p>');
                 }
-            }, "json"
-        );
+            },
+            dataType: "json"
+        });
     });
 
 });

@@ -1,13 +1,13 @@
 <?php
-$form_address = base_url() . 'index.php/listings/insert_listing';
-echo validation_errors();
+$listing_code = random_string('alnum', 8);
+$form_address = base_url() . 'index.php/listings/insert_listing/' . $listing_code;
 ?>
 
 <div id="content">
     <h1>List an Item</h1>
     <p>Complete the form below to add a listing to our marketplace.</p>
 
-    <?= form_open($form_address, array('class' => 'form-content', 'id' => 'add_listing')); ?>  
+    <?= form_open_multipart($form_address, array('class' => 'form-content', 'id' => 'add_listing')); ?>  
     <!-- IF ADMIN THEN SHOW THIS AREA -->
     <?= form_fieldset('Client Information', array('id' => 'client_info', 'class' => 'dynamic')); ?>
 
@@ -390,22 +390,9 @@ echo validation_errors();
 
     <?= form_fieldset('Product Image', array('id' => 'listing_image', 'class' => 'dynamic')); ?>
     <div class="area-form-input">
-        <?= form_label('Preview:') ?>
-        <div class="area-form-field">
-            <p>
-                <?php if ($this->session->userdata('img_name') == null) { ?>
-                    <img alt="no image" src="<?php echo base_url(); ?>assets/img/tlgy_noitem.jpg"/>
-                <?php } else { ?>
-                    <img alt="user image" src="<?php echo base_url() . 'uploads/' . $this->session->userdata('img_name'); ?>"/>
-                <?php } ?>
-            </p>
-        </div>
-    </div>
-    <div class="area-form-input">
         <?= form_label('Upload Photo:', 'filename') ?>
         <div class="area-form-field">
-            <p><?= form_upload(array('id' => 'filename', 'name' => 'filename', 'value' => set_value('filename'), 'size' => '40')); ?>
-            <?=form_hidden(array('name'=>'prod_img_path', 'value'=>set_value('prod_img_path'))); ?></p>
+            <p><?= form_upload(array('id' => 'filename', 'name' => 'filename', 'value' => set_value('filename'), 'size' => '40')); ?></p>
             <?= form_error('filename', '<p class="error">', '</p>'); ?>
             <ul class="list-form">
                 <li>If selected image is not desired, you can browse again for another.</li>
@@ -415,14 +402,27 @@ echo validation_errors();
             </ul>
         </div>
     </div>
+    <div id="area-form-preview" class="area-form-input">
+        <?= form_label('Preview:') ?>
+        <div class="area-form-field">
+            <p id="image-preview">
+                
+            </p>
+        </div>
+    </div>
     <?= form_fieldset_close(); ?>
+    
     <div class="area-form-field">
+        <?= form_hidden('listing_code',$listing_code) ?>
         <?= form_submit('btn_continue', 'Continue'); ?>
         <?= form_reset('btn_reset', 'Reset'); ?>
     </div>
 
     <?= form_close(); ?>
 </div>
+
+<script type="text/javascript" src="<?= base_url(); ?>assets/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?= base_url(); ?>assets/js/ckeditor/adapters/jquery.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -450,17 +450,66 @@ echo validation_errors();
         $('#user_fullname').keyup(function() {
             var user_fullname = $('#user_fullname').val();
             var existingUser = $('#user_exists_yes').attr('checked');
-            var existingNames = [];
+                
             if (existingUser == 'checked') {
-                $.post('<?= base_url() ?>index.php/listings/ajax_searchusers', { 'user_fullname':user_fullname },
-                function(data) {
-                    $('#user_fullname').autocomplete({
-                        source: data
-                    });
-                },"json"
-            );
+                $.ajax({
+                    type: "POST",
+                    url: '<?= base_url() ?>index.php/listing/ajax_searchusers',
+                    data: {user_fullname: user_fullname},
+                    success: function(data)
+                    {
+                        $('#user_fullname').autocomplete({
+                            source: data
+                        });
+                    },
+                    dataType: "json"
+                });
             }
         });
+        
+        var input = document.getElementById("filename"),
+            formdata = false;
 
+        if (window.FormData) {
+            formdata = new FormData();
+        }
+                
+        $('#filename').change(function(){
+            var listing_code = $('input[name="listing_code"]').val();
+            if (listing_code != '')
+            {
+                if (formdata) {
+                    $('#area-form-preview').show();
+                    document.getElementById("image-preview").innerHTML = "<span>Uploading . . .</span>";
+                    var i = 0, len = this.files.length, img, reader, file = this.files[0];
+
+                    if (!!file.type.match(/image.*/)) {
+                        if (formdata) {
+                            formdata.append("filename", file);
+                        }
+                    }
+                
+                    $.ajax({
+                        url: '<?= base_url() ?>index.php/test/upload_image/'+listing_code,
+                        type: "POST",
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        success: function (data) {
+                            var preview = document.getElementById("image-preview"),
+                                img = document.createElement("img");
+
+                            img.src = data;
+                            $('#image-preview').empty();
+                            preview.appendChild(img);;
+                            
+                        },
+                        dataType: "json"
+                    });
+                }
+            };
+        });
+        
+        $('textarea#prod_desc').ckeditor( function() { /* callback code */ }, { toolbar : 'Basic', uiColor : '#efefef'} );
     });
 </script>
