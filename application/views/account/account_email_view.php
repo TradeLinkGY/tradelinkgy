@@ -3,43 +3,43 @@
         $data = array('id' => 'frm');
         echo form_open('auth/account/change_email', $data);
     ?>
-        <?= form_fieldset('Change Email Address'); ?>
+        <?php echo form_fieldset('Change Email Address'); ?>
 
         <?php if (validation_errors()): ?>
-            <div style="color: #f00;"><?= validation_errors(); ?></div>
+            <div style="color: #f00;"><?php echo validation_errors(); ?></div>
         <? endif; ?>
 
         <?php if (isset($msg)): ?>
-            <div style="color: #f00;"><?= $msg; ?></div>
+            <div style="color: #f00;"><?php echo $msg; ?></div>
         <? endif; ?>
 
         <div class="area-form-input">
-            <?= form_label('Current Email:','user_current_email') ?>
+            <?php echo form_label('Current Email:','user_current_email') ?>
             <div class="area-form-field">
-                    <p><?= $user->user_email; ?></p>
+                    <p><?php echo $user->user_email; ?></p>
             </div>
         </div>
 
         <div class="area-form-input">
-            <?= form_label('New Email:','user_email') ?>
+            <?php echo form_label('New Email:','user_email') ?>
             <div class="area-form-field">
-                    <p><?= form_input(array('id' => 'user_email', 'name' => 'user_email', 'value' => set_value('user_email'))); ?></p>
+                    <p><?php echo form_input(array('id' => 'user_email', 'name' => 'user_email', 'value' => set_value('user_email'))); ?></p>
             </div>
         </div>
 
         <div class="area-form-input">
-            <?= form_label('Confirm Email:','user_confemail') ?>
+            <?php echo form_label('Confirm Email:','user_confemail') ?>
             <div class="area-form-field">
-                    <p><?= form_input(array('id' => 'user_confemail', 'name' => 'user_confemail', 'value' => set_value('user_confemail'))); ?></p>
+                    <p><?php echo form_input(array('id' => 'user_confemail', 'name' => 'user_confemail', 'value' => set_value('user_confemail'))); ?></p>
             </div>
         </div>
 
-        <?= form_fieldset_close(); ?>
+        <?php echo form_fieldset_close(); ?>
             
         <div class="area-form-field">
-                <?= form_submit('btn_change_email', 'Change Email'); ?>
+                <?php echo form_submit('btn_change_email', 'Change Email'); ?>
         </div>            
         
-    <?= form_close(); ?>
+    <?php echo form_close(); ?>
 
 </div>

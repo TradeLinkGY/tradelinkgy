@@ -16,21 +16,21 @@
             ?>
 
             <div class="area-listing <?php if (++$counter == 3) echo (" clearfix"); ?>">
-                <?= anchor($links['link_listing'], '<img alt="' . $row->listing_name . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />'); ?>
-                <h3><?= anchor($links['link_listing'] . base64_encode($row->id_listing), $row->listing_name); ?></h3>
+                <?php echo(anchor($links['link_listing'], '<img alt="' . $row->listing_name . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />')); ?>
+                <h3><?php echo(anchor($links['link_listing'] . base64_encode($row->id_listing), $row->listing_name)); ?></h3>
                 <?php if ($row->listing_price): ?>
-                    <p>Price: <span class="price">$<?= $row->listing_price; ?></span></p>
+                    <p>Price: <span class="price">$<?php echo $row->listing_price; ?></span></p>
                 <?php endif;?>
-                <p><?= $this->functions->cut_string($row->listing_desc, 30); ?></p>
-                <p class="listing-sub-info"><?= ($row->listing_location); ?></p>
-                <p class="listing-sub-info">Posted <?= substr($row->listing_created, 0, 10); ?></p>
+                <p><?php echo($this->functions->cut_string($row->listing_desc, 30)); ?></p>
+                <p class="listing-sub-info"><?php echo ($row->listing_location); ?></p>
+                <p class="listing-sub-info">Posted <?php echo substr($row->listing_created, 0, 10); ?></p>
             </div>
         <?php endforeach; ?>
 
         <?php $counter = 0; ?>
         </div>
 
-        <span class="pagination-link"><?= anchor($links['link_listing'].'featured', 'View All Featured &raquo;'); ?></span>
+        <span class="pagination-link"><?php echo anchor($links['link_listing'].'featured', 'View All Featured &raquo;'); ?></span>
     </div>
 
     <div class="area-type clearfix">
@@ -45,21 +45,21 @@
 
             <div class="area-listing<?php if (++$counter == 3)
             echo (" clearfix"); ?>">
-                <?= anchor($links['link_listing'], '<img alt="' . $row->listing_desc . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />'); ?>
-                <h3><?= anchor($links['link_listing'] . base64_encode($row->id_listing), $row->listing_name); ?></h3>
+                <?php echo anchor($links['link_listing'], '<img alt="' . $row->listing_desc . '" class="image-listing" src="' . $links['img_dir'] . $image . '" width="230" height="160" />'); ?>
+                <h3><?php echo anchor($links['link_listing'] . base64_encode($row->id_listing), $row->listing_name); ?></h3>
                 <?php if ($row->listing_price): ?>
-                    <p>Price: <span class="price">$<?= $row->listing_price; ?></span></p>
+                    <p>Price: <span class="price">$<?php echo $row->listing_price; ?></span></p>
                 <?php endif;?>
-                <p><?= $this->functions->cut_string($row->listing_desc, 30); ?></p>
-                <p class="listing-sub-info"><?= ($row->listing_location); ?></p>
-                <p class="listing-sub-info">Posted <?= substr($row->listing_created, 0, 10); ?></p>
+                <p><?php echo $this->functions->cut_string($row->listing_desc, 30); ?></p>
+                <p class="listing-sub-info"><?php echo ($row->listing_location); ?></p>
+                <p class="listing-sub-info">Posted <?php echo substr($row->listing_created, 0, 10); ?></p>
             </div>
         <?php endforeach; ?>
 
         <?php $counter = 0; ?>
         </div>
 
-        <span class="pagination-link"><?= anchor($links['link_listing'].'all', 'View All Listings &raquo;'); ?></span>
+        <span class="pagination-link"><?php echo anchor($links['link_listing'].'all', 'View All Listings &raquo;'); ?></span>
     </div>
 </div>
 
@@ -75,7 +75,7 @@
         </ul>
     </div>
 
-    <a class="button" href="<?=site_url();?>/listings/insert_listing">Add your listing</a>
+    <a class="button" href="<?php echo site_url();?>/listings/insert_listing">Add your listing</a>
 
     <div class="area-secondary">
         <h2>Where do I start?</h2>

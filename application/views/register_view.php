@@ -1,51 +1,51 @@
-<?= form_open('auth/register', array('class' => 'form-content', 'id' => 'register')); ?>
+<?php echo form_open('auth/register', array('class' => 'form-content', 'id' => 'register')); ?>
 
-<?= form_fieldset('Personal Information'); ?>
+<?php echo form_fieldset('Personal Information'); ?>
     <div class="area-form-input">
-        <?= form_label('Full Name:','user_fullname') ?>
+        <?php echo form_label('Full Name:','user_fullname') ?>
         <div class="area-form-field">
-                <p><?= form_input(array('id' => 'user_fullname', 'name' => 'user_fullname', 'value' => set_value('user_fullname'))); ?></p>
-                <?= form_error('user_fullname','<p class="error">', '</p>'); ?>
+                <p><?php echo form_input(array('id' => 'user_fullname', 'name' => 'user_fullname', 'value' => set_value('user_fullname'))); ?></p>
+                <?php echo form_error('user_fullname','<p class="error">', '</p>'); ?>
         </div>
     </div>
     
     <div class="area-form-input">
-        <?= form_label('Telephone:','user_country_code') ?>
+        <?php echo form_label('Telephone:','user_country_code') ?>
         <div class="area-form-field">
-                <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3', 'value' => set_value('user_country_code'))); ?>
-                <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3', 'value' => set_value('user_area_code'))); ?>
-                <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7', 'value' => set_value('user_telephone'))); ?>
+                <?php echo form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3', 'value' => set_value('user_country_code'))); ?>
+                <?php echo form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3', 'value' => set_value('user_area_code'))); ?>
+                <?php echo form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7', 'value' => set_value('user_telephone'))); ?>
                 <p>(592) 225-0000</p>
-                <?= form_error('user_telephone_number','<p class="error">', '</p>'); ?>
+                <?php echo form_error('user_telephone_number','<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('Mobile:','user_mobile_country_code') ?>
+        <?php echo form_label('Mobile:','user_mobile_country_code') ?>
         <div class="area-form-field">
-            <?= form_input(array('id' => 'user_mobile_country_code', 'name'=>'user_mobile_country_code', 'maxlength' => '3', 'value' => set_value('user_mobile_country_code'))); ?>
-            <?= form_input(array('id' => 'user_mobile_area_code', 'name'=>'user_mobile_area_code', 'maxlength' => '3', 'value' => set_value('user_mobile_area_code'))); ?>
-            <?= form_input(array('id' => 'user_mobile', 'maxlength' => '7','name'=>'user_mobile', 'value' => set_value('user_mobile'))); ?>
+            <?php echo form_input(array('id' => 'user_mobile_country_code', 'name'=>'user_mobile_country_code', 'maxlength' => '3', 'value' => set_value('user_mobile_country_code'))); ?>
+            <?php echo form_input(array('id' => 'user_mobile_area_code', 'name'=>'user_mobile_area_code', 'maxlength' => '3', 'value' => set_value('user_mobile_area_code'))); ?>
+            <?php echo form_input(array('id' => 'user_mobile', 'maxlength' => '7','name'=>'user_mobile', 'value' => set_value('user_mobile'))); ?>
             <p>(592) 600-0000</p>
-            <?= form_error('user_mobile_number','<p class="error">', '</p>'); ?>
+            <?php echo form_error('user_mobile_number','<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('Street Address:','user_address_street') ?>
+        <?php echo form_label('Street Address:','user_address_street') ?>
         <div class="area-form-field">
-            <p><?= form_input(array('id' => 'user_address_street', 'name' => 'user_address_street', 'value' => set_value('user_address_street'))); ?></p>
-            <?= form_error('user_address_street','<p class="error">', '</p>'); ?>
-            <p><?= form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary', 'value' => set_value('user_address_secondary'))); ?></p>
-            <?= form_error('user_address_secondary','<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_address_street', 'name' => 'user_address_street', 'value' => set_value('user_address_street'))); ?></p>
+            <?php echo form_error('user_address_street','<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary', 'value' => set_value('user_address_secondary'))); ?></p>
+            <?php echo form_error('user_address_secondary','<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('City:','user_address_city') ?>
+        <?php echo form_label('City:','user_address_city') ?>
         <div class="area-form-field">
-            <p><?= form_input(array('id' => 'user_address_city', 'name' => 'user_address_city', 'value' => set_value('user_address_city'))); ?></p>
-            <?= form_error('user_address_city','<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_address_city', 'name' => 'user_address_city', 'value' => set_value('user_address_city'))); ?></p>
+            <?php echo form_error('user_address_city','<p class="error">', '</p>'); ?>
         </div>
     </div>
 
@@ -300,87 +300,45 @@
         );
     ?>
     <div class="area-form-input">
-        <?= form_label('Country:','user_address_country') ?>
+        <?php echo form_label('Country:','user_address_country') ?>
         <div class="area-form-field">
-            <p><?= form_dropdown('user_address_country', $countries, 'GY'); ?></p>
-            <?= form_error('user_address_country','<p class="error">', '</p>'); ?>
+            <p><?php echo form_dropdown('user_address_country', $countries, 'GY'); ?></p>
+            <?php echo form_error('user_address_country','<p class="error">', '</p>'); ?>
         </div>
     </div>
 
-<?= form_fieldset_close(); ?>
+<?php echo form_fieldset_close(); ?>
 
-<?= form_fieldset('Account Information'); ?>
+<?php echo form_fieldset('Account Information'); ?>
     <div class="area-form-input">
-        <?= form_label('Email:','user_email') ?>
+        <?php echo form_label('Email:','user_email') ?>
 		<div class="area-form-field">
-                        <p><?= form_input(array('id' => 'user_email', 'name' => 'user_email', 'value' => set_value('user_email'))); ?></p>
-                        <?= form_error('user_email','<p class="error">', '</p>'); ?>
+                        <p><?php echo form_input(array('id' => 'user_email', 'name' => 'user_email', 'value' => set_value('user_email'))); ?></p>
+                        <?php echo form_error('user_email','<p class="error">', '</p>'); ?>
 		</div>
     </div>
     <div class="area-form-input">
-        <?= form_label('Password:','user_password') ?>
+        <?php echo form_label('Password:','user_password') ?>
 		<div class="area-form-field">
-                        <p><?= form_password(array('id' => 'user_password', 'name' => 'user_password')); ?></p>
-                        <?= form_error('user_password','<p class="error">', '</p>'); ?>
+                        <p><?php echo form_password(array('id' => 'user_password', 'name' => 'user_password')); ?></p>
+                        <?php echo form_error('user_password','<p class="error">', '</p>'); ?>
 		</div>
     </div>
     <div class="area-form-input">
-        <?= form_label('Confirm Password:','user_confpass') ?>
+        <?php echo form_label('Confirm Password:','user_confpass') ?>
 		<div class="area-form-field">
-                        <p><?= form_password(array('id' => 'user_confpass', 'name' => 'user_confpass')); ?></p>
-                        <?= form_error('user_confpass','<p class="error">', '</p>'); ?>
+                        <p><?php echo form_password(array('id' => 'user_confpass', 'name' => 'user_confpass')); ?></p>
+                        <?php echo form_error('user_confpass','<p class="error">', '</p>'); ?>
 		</div>
     </div>
 
     <div class="area-form-field">
-        <p><?= form_checkbox(array('id' => 'user_agree', 'name' => 'user_agree', 'value' => 'agree', 'checked' => set_checkbox('user_agree', 'agree', FALSE))); 
+        <p><?php echo form_checkbox(array('id' => 'user_agree', 'name' => 'user_agree', 'value' => 'agree', 'checked' => set_checkbox('user_agree', 'agree', FALSE))); 
             echo form_label('I agree to the Terms of Service','user_agree', array('class'=>'inline-label')) ?></p>
     </div>
-<?= form_fieldset_close(); ?>
+<?php echo form_fieldset_close(); ?>
 	<div class="area-form-field">
-		<?= form_submit('btn_register', 'Register'); ?>
-		<?= form_reset('btn_reset', 'Reset'); ?>
+		<?php echo form_submit('btn_register', 'Register'); ?>
+		<?php echo form_reset('btn_reset', 'Reset'); ?>
 	</div>
-<?= form_close(); ?>
-
-<script type="text/javascript">
-$(document).ready(function() {
-
-    $('#user_email').blur(function() {
-        var user_email = $('#user_email').val();
-        $.ajax({
-            type: "POST",
-            url: '<?php echo base_url()?>index.php/test/ajax_email',
-            data: {user_email: user_email},
-            success: function(data)
-            {
-                $('#field-username').replaceWith('');
-                if (data) {
-                    $('#user_email').after('<p id="field-username" class="error">' + data + '</p>');
-                }
-            },
-            dataType: "json"
-        });
-    });
-    
-    $('#user_confpass').blur(function() {
-        var user_password = $('#password').val();
-        var user_confpass = $('#passwordconf').val();
-        $.ajax({
-            type: "POST",
-            url: '<?php echo base_url()?>index.php/test/ajax_confpass',
-            data: {user_password: user_password, user_confpass: user_confpass},
-            success: function(data)
-            {
-                $('#field-password').replaceWith('');
-                if (data) {
-                    $('#passwordconf').after('<p id="field-password" class="error">' + data + '</p>');
-                }
-            },
-            dataType: "json"
-        });
-    });
-
-
-});
-</script>
+<?php echo form_close(); ?>

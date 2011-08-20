@@ -7,61 +7,61 @@
     <h2>Personal Information</h2>
 
     <?php if (isset($msg)): ?>
-        <p class="error"><?= $msg; ?></p>
+        <p class="error"><?php echo $msg; ?></p>
     <? endif; ?>
 
     <div class="area-form-input">
-        <?= form_label('Full Name:', 'user_fullname') ?>
+        <?php echo form_label('Full Name:', 'user_fullname') ?>
         <div class="area-form-field">
-            <p><?= form_input(array('id' => 'user_fullname', 'name' => 'user_fullname'), $user->user_fullname); ?></p>
-            <?= form_error('user_fullname', '<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_fullname', 'name' => 'user_fullname'), $user->user_fullname); ?></p>
+            <?php echo form_error('user_fullname', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('Email:', 'user_email') ?>
+        <?php echo form_label('Email:', 'user_email') ?>
         <div class="area-form-field">
-            <p><?= $user->user_email . ' ' . anchor('auth/account/change_email', 'Change'); ?></p>
+            <p><?php echo $user->user_email . ' ' . anchor('auth/account/change_email', 'Change'); ?></p>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('Telephone:', 'user_country_code') ?>
+        <?php echo form_label('Telephone:', 'user_country_code') ?>
         <?php $telephone = $this->functions->parse_telephone($user->user_phone); ?>
         <div class="area-form-field">
-            <?= form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3'), $telephone['country_code']); ?>
-            <?= form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3'), $telephone['area_code']); ?>
-            <?= form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7'), $telephone['number']); ?>
-            <?= form_error('user_telephone', '<p class="error">', '</p>'); ?>
+            <?php echo form_input(array('id' => 'user_country_code', 'name' => 'user_country_code', 'maxlength' => '3'), $telephone['country_code']); ?>
+            <?php echo form_input(array('id' => 'user_area_code', 'name' => 'user_area_code', 'maxlength' => '3'), $telephone['area_code']); ?>
+            <?php echo form_input(array('id' => 'user_telephone', 'name' => 'user_telephone', 'maxlength' => '7'), $telephone['number']); ?>
+            <?php echo form_error('user_telephone', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('Mobile:', 'user_mobile_country_code') ?>
+        <?php echo form_label('Mobile:', 'user_mobile_country_code') ?>
         <?php $mobile = $this->functions->parse_telephone($user->user_mobile); ?>
         <div class="area-form-field">
-            <?= form_input(array('id' => 'user_mobile_country_code', 'name' => 'user_mobile_country_code', 'maxlength' => '3'), $mobile['country_code']); ?>
-            <?= form_input(array('id' => 'user_mobile_area_code', 'name' => 'user_mobile_area_code', 'maxlength' => '3'), $mobile['area_code']); ?>
-            <?= form_input(array('id' => 'user_mobile', 'name' => 'user_mobile', 'maxlength' => '7'), $mobile['number']); ?>
-            <?= form_error('user_mobile', '<p class="error">', '</p>'); ?>
+            <?php echo form_input(array('id' => 'user_mobile_country_code', 'name' => 'user_mobile_country_code', 'maxlength' => '3'), $mobile['country_code']); ?>
+            <?php echo form_input(array('id' => 'user_mobile_area_code', 'name' => 'user_mobile_area_code', 'maxlength' => '3'), $mobile['area_code']); ?>
+            <?php echo form_input(array('id' => 'user_mobile', 'name' => 'user_mobile', 'maxlength' => '7'), $mobile['number']); ?>
+            <?php echo form_error('user_mobile', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('Street Address:', 'user_address_street') ?>
+        <?php echo form_label('Street Address:', 'user_address_street') ?>
         <div class="area-form-field">
-            <p><?= form_input(array('id' => 'user_address_street', 'name' => 'user_address_street'), $user->user_address_street); ?></p>
-            <?= form_error('user_address_street', '<p class="error">', '</p>'); ?>
-            <p><?= form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary'), $user->user_address_secondary); ?></p>
-            <?= form_error('user_address_secondary', '<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_address_street', 'name' => 'user_address_street'), $user->user_address_street); ?></p>
+            <?php echo form_error('user_address_street', '<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_address_secondary', 'name' => 'user_address_secondary'), $user->user_address_secondary); ?></p>
+            <?php echo form_error('user_address_secondary', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-input">
-        <?= form_label('City:', 'user_address_city') ?>
+        <?php echo form_label('City:', 'user_address_city') ?>
         <div class="area-form-field">
-            <p><?= form_input(array('id' => 'user_address_city', 'name' => 'user_address_city'), $user->user_address_city); ?></p>
-            <?= form_error('user_address_city', '<p class="error">', '</p>'); ?>
+            <p><?php echo form_input(array('id' => 'user_address_city', 'name' => 'user_address_city'), $user->user_address_city); ?></p>
+            <?php echo form_error('user_address_city', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
@@ -316,16 +316,16 @@
     );
     ?>
     <div class="area-form-input">
-        <?= form_label('Country:', 'user_address_country') ?>
+        <?php echo form_label('Country:', 'user_address_country') ?>
         <div class="area-form-field">
-            <p><?= form_dropdown('user_address_country', $countries, $user->user_address_country); ?></p>
-            <?= form_error('user_address_country', '<p class="error">', '</p>'); ?>
+            <p><?php echo form_dropdown('user_address_country', $countries, $user->user_address_country); ?></p>
+            <?php echo form_error('user_address_country', '<p class="error">', '</p>'); ?>
         </div>
     </div>
 
     <div class="area-form-field">
-        <?= form_submit('btn_register', 'Update'); ?>
+        <?php echo form_submit('btn_register', 'Update'); ?>
     </div>
 
-    <?= form_close(); ?>
+    <?php echo form_close(); ?>
 </div>

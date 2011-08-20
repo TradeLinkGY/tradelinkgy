@@ -4,8 +4,8 @@ $counter = 0;
 ?>
 
 <div id="content">
-    <h2>"<?= $search_str; ?>"</h2>
-    <p>Found <?=$search_items['num_rows'];?> listing<?php if($search_items['num_rows']!=1):?>s<?endif;?> matching your criteria.</p>
+    <h2>"<?php echo $search_str; ?>"</h2>
+    <p>Found <?php echo$search_items['num_rows'];?> listing<?php if($search_items['num_rows']!=1):?>s<?endif;?> matching your criteria.</p>
     
     <div class="area-listing-holder">
 

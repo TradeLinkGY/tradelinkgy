@@ -8,10 +8,10 @@
     <p class="error">ERRORS</p>
     -->
     <table id="area-listing-table">
-        <?= form_open($form_address, array('id' => 'view_listings')); ?>
+        <?php echo form_open($form_address, array('id' => 'view_listings')); ?>
         <thead>
             <tr>
-                <th class="table-listing-checkbox"><?= form_checkbox('select_all', 'true', FALSE); ?></th>
+                <th class="table-listing-checkbox"><?php echo form_checkbox('select_all', 'true', FALSE); ?></th>
                 <th class="table-listing-id">ID</th>
                 <th class="table-listing-name">Listing Name</th>
                 <th class="table-listing-status">Status</th>
@@ -36,7 +36,7 @@
                     </span>
                      <?php if (strlen($pagination)): ?>
                         <span class="pagination-link">
-                            Pages: <?= $pagination; ?>
+                            Pages: <?php echo $pagination; ?>
                         </span>
                     <?php endif; ?>
                 </td>
@@ -45,13 +45,13 @@
         <tbody>
             <?php $counter = 0; ?>
             <?php foreach ($listings['rows'] as $row): ?>
-            <tr class="listing-<?= $row->id_listing; ?>">
-                <td class="cell-listing-checkbox"><p><?= form_checkbox('listing-number['.$counter++.']', $row->id_listing, FALSE); ?></p></td>
-                <td><p><?= $row->id_listing ?></p></td>
-                <td><p><?= anchor('listings/display/'.$row->id_listing,$row->listing_name) ?></p></td>
-                <td><p><?= $row->listing_status ?></p></td>
+            <tr class="listing-<?php echo $row->id_listing; ?>">
+                <td class="cell-listing-checkbox"><p><?php echo form_checkbox('listing-number['.$counter++.']', $row->id_listing, FALSE); ?></p></td>
+                <td><p><?php echo $row->id_listing ?></p></td>
+                <td><p><?php echo anchor('listings/display/'.$row->id_listing,$row->listing_name) ?></p></td>
+                <td><p><?php echo $row->listing_status ?></p></td>
                 <td class="cell-listing-activity">
-                    <p>Created: <?= $row->listing_created ?></p>
+                    <p>Created: <?php echo $row->listing_created ?></p>
                     <p>Expiring: <?php if (is_null($row->listing_expiry)) echo "Never"; else echo $row->listing_expiry; ?></p>
                 </td>
                 <td>

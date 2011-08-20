@@ -8,27 +8,21 @@ $title = "TradeLinkGY.com | Your Premier Listings Resource"; // REPLACE with pag
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><?php echo($title); ?></title>
     <?php foreach ($css as $style): ?>
-        <link href="<?= base_url(); ?>assets/css/<?= $style ?>.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="<?php echo (base_url()); ?>assets/css/<?php echo ($style); ?>.css" rel="stylesheet" type="text/css" media="screen" />
     <?php endforeach; ?>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-        
-        <script type="text/javascript" src="<?= base_url() ?>assets/js/jquery.fileUploader.js"></script>
-        <link href="<?= base_url(); ?>assets/css/fileuploader/fileUploader.css" rel="stylesheet" type="text/css" media="screen" />
-        <link href="<?= base_url(); ?>assets/css/fileuploader/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
 
     <body>
         <div id="wrapper">
             <div id="header">
-                <?= (anchor('', '<img alt="TradeLinkGY.com logo" src="'.base_url().'assets/img/tlgy_logo-v1.png" width="310" height="70" />', array('title' => 'Return to Homepage', 'id' => 'logo'))); ?>
+                <?php echo (anchor('', '<img alt="TradeLinkGY.com logo" src="'.base_url().'assets/img/tlgy_logo-v1.png" width="310" height="70" />', array('title' => 'Return to Homepage', 'id' => 'logo'))); ?>
                 <span id="text-account">
                 <?php if ($this->session->userdata('uid') == null): ?>
                     <?php echo(anchor('auth/register', 'Register')); ?> | 
                     <?php echo(anchor('auth/login', 'Login')); ?> | 
                     <?php echo(anchor('home/help', 'Help')); ?>
                 <?php else: ?>
-                    <span><?= $this->session->userdata('name'); ?></span> |
+                    <span><?php echo $this->session->userdata('name'); ?></span> |
                     <?php echo(anchor('auth/account/basic', 'My Account')); ?> |
                     <?php echo(anchor('auth/account/my_listings', 'My Listings')); ?> |
                     <?php echo(anchor('home/help', 'Help')); ?> | 
@@ -45,8 +39,8 @@ $title = "TradeLinkGY.com | Your Premier Listings Resource"; // REPLACE with pag
                 <select name="categories">
                     <option value="all">All Categories</option>
                     <?php foreach ($categories as $category): ?>
-                        <option value="<?= $category->id_category ?>" <?php if(isset($search_cat) && $category->id_category==$search_cat) echo 'selected' ?>>
-                            <?= $category->name_category; ?>
+                        <option value="<?php echo $category->id_category ?>" <?php if(isset($search_cat) && $category->id_category==$search_cat) echo 'selected' ?>>
+                            <?php echo $category->name_category; ?>
                         </option>
                     <?php endforeach; ?>
                     <?php
@@ -61,6 +55,6 @@ $title = "TradeLinkGY.com | Your Premier Listings Resource"; // REPLACE with pag
                 </select>
                 <input type="text" name="keyword" <?php if(isset($search_str)) echo "value='$search_str'"; ?> />
                 <input type="submit" value="Search" />
-                <?= form_close(); ?>
+                <?php echo form_close(); ?>
             </div>
             <div id="area-content" class="clearfix">

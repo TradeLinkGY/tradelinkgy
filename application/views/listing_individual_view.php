@@ -1,6 +1,6 @@
 <div id="content" class="clearfix">
     <div class="area-type noborder clearfix">
-        <h2><?= $listing->listing_name; ?></h2>
+        <h2><?php echo $listing->listing_name; ?></h2>
         <p>Listed in: <?php echo(anchor($links['link_category'], $listing->name_category)); ?> <span>&raquo;</span> sub-category.</p>
         <!-- TEST Line -->
         
